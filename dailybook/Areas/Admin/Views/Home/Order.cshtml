@@ -1,0 +1,95 @@
+﻿@* @model IEnumerable<dailybook.Models.Order> *@
+@using dailybook.Models;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<Order>
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Order</h1>
+
+<p>
+    <a asp-action="CreateOrder">Create New</a>
+</p>
+<p>@TempData["Message"]</p>
+@* <table class="table"> *@
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                OrderDate
+            </th>
+@*             <th>
+                ShipDate
+            </th>
+            <th>
+                Deleted
+            </th> *@
+            <th>
+                Paid
+            </th>
+            <th>
+                PaymentDate
+            </th>
+@*             <th>
+                PaymentId
+            </th> *@
+            <th>
+                Note
+            </th>
+            <th>
+                Customer
+            </th>
+            <th>
+                TransactStatus
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+@*             <td>
+                @Html.DisplayFor(modelItem => item.ShipDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deleted)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Paid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentDate)
+            </td>
+@*             <td>
+                @Html.DisplayFor(modelItem => item.PaymentId)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cus.CusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactStatus.TransactStatusId)
+            </td>
+            <td>
+                    <a asp-action="UpdateOrder" asp-route-OrderId="@item.OrderId">Edit</a> |
+                <a asp-action="OrderDetail" asp-route-id="@item.OrderId">Details</a> |
+                    <a asp-action="DeleteOrder" asp-route-OrderId="@item.OrderId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Order", new { page = page }), new X.PagedList.Web.Common.PagedListRenderOptions
+{
+    ContainerDivClasses = new[] { "navigation" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+}))

@@ -1,0 +1,144 @@
+﻿@model dailybook.Models.Order
+
+@{
+    ViewData["Title"] = "OrderDetail";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>OrderDetail</h1>
+
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                OrderDate
+            </th>
+            @*             <th>
+            ShipDate
+            </th>
+            <th>
+            Deleted
+            </th> *@
+            <th>
+                Paid
+            </th>
+            <th>
+                PaymentDate
+            </th>
+            @*             <th>
+            PaymentId
+            </th> *@
+            <th>
+                Note
+            </th>
+            <th>
+                Customer
+            </th>
+            <th>
+                TransactStatus
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>
+                @Html.DisplayFor(model => @model.OrderDate)
+                </td>
+                @*             <td>
+            @Html.DisplayFor(modelItem => item.ShipDate)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.Deleted)
+            </td> *@
+                <td>
+                @Html.DisplayFor(model => @model.Paid)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.PaymentDate)
+                </td>
+                @*             <td>
+            @Html.DisplayFor(modelItem => item.PaymentId)
+            </td> *@
+                <td>
+                @Html.DisplayFor(model => @model.Note)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Cus.CusId)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.TransactStatus.TransactStatusId)
+                </td>
+                <td>
+                <a asp-action="UpdateOrder" asp-route-OrderId="@Model.OrderId">Edit</a> |
+                    <a asp-action="Order">Back to List</a>
+                </td>
+            </tr>
+    </tbody>
+</table>
+
+@* <div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ShipDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ShipDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Paid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Paid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PaymentDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PaymentId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cus.CusId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TransactStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TransactStatus.TransactStatusId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.OrderId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+ *@

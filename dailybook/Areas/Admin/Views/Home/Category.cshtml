@@ -1,0 +1,118 @@
+﻿@* @model IEnumerable<dailybook.Models.Category> *@
+@using dailybook.Models;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<Category>
+@{
+    ViewData["Title"] = "Category";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Category Management</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p>@TempData["Message"]</p>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                Category Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                ParentId
+            </th>
+            @* <th>
+                Levels
+            </th>
+            <th>
+                Ordering
+            </th> *@
+            <th>
+                Published
+            </th>
+            @* <th>
+                Thumb
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Alias
+            </th>
+            <th>
+                MetaDesc
+            </th>
+            <th>
+                MetaKey
+            </th>
+            <th>
+                Cover
+            </th>
+            <th>
+                SchemaMarkup
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CatName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentId)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Levels)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ordering)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Published)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Thumb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetaDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetaKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cover)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SchemaMarkup)
+            </td> *@
+            <td>
+                    <a asp-action="Update" asp-route-CatId="@item.CatId">Edit</a> |
+                    <a asp-action="CategoryDetail" asp-route-id="@item.CatId">Details</a> |
+                    <a asp-action="Delete" asp-route-CatId="@item.CatId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Category", new { page = page }), new X.PagedList.Web.Common.PagedListRenderOptions
+{
+    ContainerDivClasses = new[] { "navigation" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+}))

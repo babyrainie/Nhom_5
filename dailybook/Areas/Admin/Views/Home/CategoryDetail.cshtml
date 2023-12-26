@@ -1,0 +1,103 @@
+﻿@model dailybook.Models.Category
+
+@{
+    ViewData["Title"] = "CategoryDetail";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>CategoryDetail</h1>
+
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                Category Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                ParentId
+            </th>
+            <th>
+                Levels
+            </th>
+            <th>
+                Ordering
+            </th>
+            <th>
+                Published
+            </th>
+            <th>
+                Thumb
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Alias
+            </th>
+            <th>
+                MetaDesc
+            </th>
+            <th>
+                MetaKey
+            </th>
+            <th>
+                Cover
+            </th>
+            <th>
+                SchemaMarkup
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>
+                @Html.DisplayFor(model => @model.CatName)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Description)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.ParentId)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Levels)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Ordering)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Published)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Thumb)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Title)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Alias)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.MetaDesc)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.MetaKey)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Cover)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.SchemaMarkup)
+                </td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@Model?.CatId">Edit</a> |
+                    <a asp-action="Category">Back to List</a>
+                </td>
+            </tr>
+    </tbody>
+</table>
+

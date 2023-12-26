@@ -1,0 +1,255 @@
+﻿@model dailybook.Models.Product
+
+@{
+    ViewData["Title"] = "ProductDetail";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>ProductDetail</h1>
+
+@* <div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ShortDesc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ShortDesc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Thumb)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Thumb)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateModified)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateModified)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bestsellers)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bestsellers)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Homeflag)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Homeflag)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tags)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tags)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Alias)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Alias)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaDesc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MetaDesc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MetaKey)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MetaKey)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UnitsInStock)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UnitsInStock)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cat)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cat.CatId)
+        </dd>
+    </dl>
+</div> *@
+
+
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Short Description
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Discount
+            </th>
+            <th>
+                Thumb
+            </th>
+            <th>
+                DateCreated
+            </th>
+            <th>
+                DateModified
+            </th>
+            <th>
+                Bestsellers
+            </th>
+            <th>
+                Homeflag
+            </th>
+            <th>
+                Active
+            </th>
+            <th>
+                Tags
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Alias
+            </th>
+            <th>
+                MetaDesc
+            </th>
+            <th>
+                MetaKey
+            </th>
+            <th>
+                UnitsInStock
+            </th>
+            <th>
+                Category ID
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+            <tr>
+                <td>
+                @Html.DisplayFor(model => @model.ProductName)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.ShortDesc)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Description)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Price)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Discount)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Thumb)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.DateCreated)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.DateModified)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Bestsellers)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Homeflag)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Active)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Tags)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Title)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Alias)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.MetaDesc)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.MetaKey)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.UnitsInStock)
+                </td>
+                <td>
+                @Html.DisplayFor(model => @model.Cat.CatId)
+                </td>
+                <td>
+                    <a asp-action="UpdateProduct" asp-route-ProductId="@Model?.ProductId">Edit</a> |
+                    <a asp-action="Product">Back to List</a>
+                </td>
+            </tr>
+    </tbody>
+</table>
+
+
+@* <div>
+    <a asp-action="UpdateProduct" asp-route-ProductId="@Model?.ProductId">Edit</a> |
+    <a asp-action="Product">Back to List</a>
+</div> *@

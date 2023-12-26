@@ -1,0 +1,149 @@
+﻿@* @model IEnumerable<dailybook.Models.Product> *@
+@using dailybook.Models;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<Product>
+@{
+    ViewData["Title"] = "Product";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Product Management</h1>
+
+<p>
+    <a asp-action="CreateProduct">Create New</a>
+</p>
+<p>@TempData["Message"]</p>
+<table id="datatablesSimple">
+@* <table class="table"> *@
+    <thead>
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <@* th>
+                Short Description
+            </th>
+            <th>
+                Description *@
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Discount
+            </th>
+@*             <th>
+                Thumb
+            </th> *@
+            <th>
+                DateCreated
+            </th>
+@*             <th>
+                DateModified
+            </th>
+            <th>
+                Bestsellers
+            </th>
+            <th>
+                Homeflag
+            </th> *@
+            <th>
+                Active
+            </th>
+            @* <th>
+                Tags
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Alias
+            </th>
+            <th>
+                MetaDesc
+            </th>
+            <th>
+                MetaKey
+            </th> *@
+            <th>
+                UnitsInStock
+            </th>
+            <th>
+                Category ID
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+@*             <td>
+                @Html.DisplayFor(modelItem => item.ShortDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+@*             <td>
+                @Html.DisplayFor(modelItem => item.Thumb)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.DateModified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bestsellers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Homeflag)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Tags)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetaDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetaKey)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitsInStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat.CatId)
+            </td>
+            <td>
+                    <a asp-action="UpdateProduct" asp-route-id="@item.ProductId">Edit</a> |
+                    <a asp-action="ProductDetail" asp-route-id="@item.ProductId">Details</a> |
+                    <a asp-action="DeleteProduct" asp-route-ProductId="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Product", new { page = page }), new X.PagedList.Web.Common.PagedListRenderOptions
+{
+    ContainerDivClasses = new[] { "navigation" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+    DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+}))
